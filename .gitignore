@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### properties ###
-D:\fanponent\fanponent\fanponent\src\main\resources\application.properties
+application.properties
