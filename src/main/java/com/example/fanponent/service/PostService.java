@@ -12,8 +12,8 @@ public class PostService {
     private final PostsRepository postsRepository;
 
     @Autowired
-    public PostService(PostsRepository postDao) {
-        this.postsRepository = postDao;
+    public PostService(PostsRepository postsRepository) {
+        this.postsRepository = postsRepository;
     }
 
     public List<Post> getAllPosts() {
