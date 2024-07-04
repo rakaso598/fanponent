@@ -1,6 +1,6 @@
 package com.example.fanponent.service;
 
-import com.example.fanponent.dao.PostsRepository;
+import com.example.fanponent.repository.PostsRepository;
 import com.example.fanponent.entity.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,7 @@ public class PostService {
     public PostService(PostsRepository postsRepository) {
         this.postsRepository = postsRepository;
     }
+
 
     public List<Post> getAllPosts() {
         return postsRepository.findAll();

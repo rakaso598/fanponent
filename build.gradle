@@ -46,6 +46,9 @@ dependencies {
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test9:3.0.3'
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
