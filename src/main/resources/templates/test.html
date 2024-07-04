@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<!-- posts.html -->
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>thymeleafTest</title>
-</head>
 <body>
-<p><span th:text="${say}">Hi</span> Thymeleaf</p>
+<h1>게시물 목록</h1>
+<ul>
+    <li th:each="post : ${allPosts}">
+        <p th:text="${post.title}"></p>
+        <p th:text="${post.content}"></p>
+        <!-- 기타 필요한 속성 출력 -->
+    </li>
+</ul>
 </body>
 </html>
