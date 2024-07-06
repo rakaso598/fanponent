@@ -15,7 +15,7 @@
 }
 
 .header {
-    background-color: skyblue;
+    background-color: aquamarine;
     width: 100%;
     top: 0;
     padding-bottom: 1px;
@@ -43,6 +43,12 @@
     margin: 0 auto;
 }
 
+.my-group-a .root-page-container__left {
+    flex: 1;
+    max-width: 848px;
+    border-radius: 16px;
+}
+
 .my-group-a .root-page-container__content {
     display: flex;
     width: 100%;
@@ -51,4 +57,49 @@
     padding: 0 0;
 
     height: 3960px;
+}
+
+.my-group-a .fan-page-header {
+    margin-bottom: 0;
+    height: 56px;
+}
+
+.fan-post-list__body {
+    position: relative;
+}
+
+.root-page-container__left {
+    background-color: aliceblue;
+}
+
+.my-group-a .fan-post-list .fan-post-card-wrapper {
+    margin-bottom: 0;
+    border-bottom: 1px gray solid;
+}
+
+.fan-post-list .fan-post-card:last-child {
+    margin-bottom: 0;
+}
+
+.my-group-a .fan-post-card__header {
+    display: flex;
+    position: relative;
+}
+
+.my-group-a .fan-post-card__link {
+    display: block;
+}
+
+.my-group-a .fan-post-card__topic {
+    margin-top: 8px;
+}
+
+.my-group-a .fan-post-card__highlight {
+    margin-top: 8px;
+}
+
+.my-group-a .fan-post-card__footer {
+    margin-top: 16px;
+    display: -webkit-box;
+    display: flex;
 }
