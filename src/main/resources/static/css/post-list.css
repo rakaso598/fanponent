@@ -19,7 +19,7 @@
     width: 100%;
     top: 0;
     padding-bottom: 1px;
-
+    /* ** */
     min-width: 768px;
 }
 
@@ -39,8 +39,9 @@
     justify-content: center;
     flex-direction: column;
     transition: padding-right, padding-left 0.3s ease;
-    min-width: 768px;
     margin: 0 auto;
+    /* ** */
+    min-width: 768px;
 }
 
 .my-group-a .root-page-container__left {
@@ -55,8 +56,8 @@
     justify-content: center;
     max-width: 1208px;
     padding: 0 0;
-
-    height: 3960px;
+    /* ** */
+    height: 3940px;
 }
 
 .my-group-a .fan-page-header {
@@ -100,6 +101,5 @@
 
 .my-group-a .fan-post-card__footer {
     margin-top: 16px;
-    display: -webkit-box;
     display: flex;
 }
