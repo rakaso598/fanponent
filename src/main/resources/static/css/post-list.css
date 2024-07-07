@@ -6,7 +6,6 @@
     outline: 1px solid red;
 }
 
-
 .root {
     width: 100%;
     height: 4000px;
@@ -47,7 +46,7 @@
 
 .my-group-a .root-page-container__left {
     flex: 1;
-    max-width: 848px;
+    max-width: 850px;
     border-radius: 16px;
 }
 
@@ -55,10 +54,10 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    max-width: 1208px;
+    max-width: 1200px;
     padding: 0 0;
     /* ** */
-    height: 3940px;
+    height: 4000px;
 }
 
 .my-group-a .fan-page-header {
@@ -73,6 +72,12 @@
 .root-page-container__left {
     background-color: aliceblue;
 }
+
+.root-page-container__right {
+    max-width: 300px;
+}
+
+
 
 .my-group-a .fan-post-list .fan-post-card-wrapper {
     margin-bottom: 0;
@@ -109,4 +114,8 @@
 .my-group-a .fan-post-card__footer {
     margin-top: 16px;
     display: flex;
+}
+
+.footer__item {
+    width: 300px;
 }
