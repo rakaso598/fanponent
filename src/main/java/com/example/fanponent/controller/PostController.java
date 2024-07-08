@@ -30,7 +30,7 @@ public class PostController {
         model.addAttribute("allPosts",allPosts);
 
 
-        return "test";
+        return "list-test";
     }
 
 

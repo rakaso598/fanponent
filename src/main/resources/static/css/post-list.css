@@ -6,6 +6,58 @@
     outline: 1px solid red;
 }
 
+/* 768px보다 크고 1440px보다 작은 화면에서 적용되는 스타일 for Desktop */
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .root-page-container__content {
+        max-width: 1200px;
+    }
+    .header {
+        min-width: 768px;
+    }
+    .root-page-container__right {
+        max-width: 300px;
+    }
+}
+
+/* 401px보다 크고 767px보다 작은 화면에서 적용되는 스타일 for 425px L */
+@media screen and (min-width: 401px) and (max-width: 767px) {
+    .root-page-container__content {
+        max-width: 425px;
+    }
+    .header {
+        min-width: 425px;
+    }
+    .root-page-container__right {
+        display: none;
+    }
+}
+
+/* 371px보다 크고 400px보다 작은 화면에서 적용되는 스타일 for 375px M */
+@media screen and (min-width: 371px) and (max-width: 400px) {
+    .root-page-container__content {
+        max-width: 375px;
+    }
+    .header {
+        min-width: 375px;
+    }
+    .root-page-container__right {
+        display: none;
+    }
+}
+
+/* 더 작은 화면에서만 적용되는 스타일 for 320px S */
+@media screen and (max-width: 370px) {
+    .root-page-container__content {
+        max-width: 320px;
+    }
+    .header {
+        min-width: 320px;
+    }
+    .root-page-container__right {
+        display: none;
+    }
+}
+
 .root {
     width: 100%;
     height: 4000px;
@@ -18,13 +70,11 @@
     width: 100%;
     top: 0;
     padding-bottom: 1px;
-    /* ** */
-    min-width: 768px;
 }
 
 .my-group-a .header__inner {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 20px;
     display: flex;
     height: 60px;
     justify-content: center;
@@ -40,13 +90,11 @@
     flex-direction: column;
     transition: padding-right, padding-left 0.3s ease;
     margin: 0 auto;
-    /* ** */
-    min-width: 768px;
 }
 
 .my-group-a .root-page-container__left {
     flex: 1;
-    max-width: 850px;
+    max-width: 900px;
     border-radius: 16px;
 }
 
@@ -56,7 +104,6 @@
     justify-content: center;
     max-width: 1200px;
     padding: 0 0;
-    /* ** */
     height: 4000px;
 }
 
@@ -73,21 +120,19 @@
     background-color: aliceblue;
 }
 
-.root-page-container__right {
+/* .root-page-container__right {
     max-width: 300px;
-}
-
-
+} */
 
 .my-group-a .fan-post-list .fan-post-card-wrapper {
     margin-bottom: 0;
     border-bottom: 1px gray solid;
+    padding: 20px;
 
 }
 
 .fan-post-list .fan-post-card {
-    /* ** */
-    outline: 3px dashed blue;
+    outline: 2px solid blue;
 }
 
 .fan-post-list .fan-post-card:last-child {
@@ -116,6 +161,17 @@
     display: flex;
 }
 
-.footer__item {
+.fan-side-section__wrap {
+    height: 4000px;
+    padding: 20px;
     width: 300px;
+}
+
+.side-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.header__right {
+    display: flex;
 }
