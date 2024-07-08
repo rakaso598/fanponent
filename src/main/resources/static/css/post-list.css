@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 /* 768px보다 크고 1440px보다 작은 화면에서 적용되는 스타일 for Desktop */
@@ -63,13 +63,14 @@
     height: 4000px;
     display: flex;
     flex-direction: column;
-    background-color: #e3f2fd;
+    background-color: #b3e5fc;
 }
 
 .header {
     width: 100%;
     top: 0;
     padding-bottom: 1px;
+    background-color: black;
 }
 
 .my-group-a .header__inner {
@@ -81,7 +82,7 @@
     justify-content: center;
     align-items: center;
     justify-content: space-between;
-    background-color: #1976d2;
+    background-color: #0091ea;
 }
 
 .my-group-a .root-page-container {
@@ -120,9 +121,8 @@
 
 .my-group-a .fan-post-list .fan-post-card-wrapper {
     margin-bottom: 0;
-    border-bottom: 1px gray solid;
     padding: 20px;
-    background-color: #bbdefb;
+    background-color: #e1f5fe;
     border-radius: 16px;
 }
 
@@ -184,5 +184,6 @@
 }
 
 .fan-page-header-block {
-    background-color: #64b5f6;
+    background-color: #80d8ff;
+    border-bottom: 1px black solid;
 }
