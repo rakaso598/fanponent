@@ -63,11 +63,10 @@
     height: 4000px;
     display: flex;
     flex-direction: column;
-    background-color: #F8F6E3;
+    background-color: #e3f2fd;
 }
 
 .header {
-    background-color: #97E7E1;
     width: 100%;
     top: 0;
     padding-bottom: 1px;
@@ -82,6 +81,7 @@
     justify-content: center;
     align-items: center;
     justify-content: space-between;
+    background-color: #1976d2;
 }
 
 .my-group-a .root-page-container {
@@ -98,8 +98,6 @@
     flex: 1;
     max-width: 900px;
     min-width: 320px;
-    border-radius: 16px;
-    background-color: #F8F6E3;
 }
 
 .my-group-a .root-page-container__content {
@@ -120,15 +118,12 @@
     position: relative;
 }
 
-/* .root-page-container__right {
-    max-width: 300px;
-} */
-
 .my-group-a .fan-post-list .fan-post-card-wrapper {
     margin-bottom: 0;
     border-bottom: 1px gray solid;
     padding: 20px;
-
+    background-color: #bbdefb;
+    border-radius: 16px;
 }
 
 .fan-post-list .fan-post-card {
@@ -188,10 +183,6 @@
     margin-right: 20px;
 }
 
-.fan-post-card {
-    background-color: #7AA2E3;
-}
-
 .fan-page-header-block {
-    background-color: #6ad4dd
+    background-color: #64b5f6;
 }
