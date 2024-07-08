@@ -63,10 +63,11 @@
     height: 4000px;
     display: flex;
     flex-direction: column;
+    background-color: #F8F6E3;
 }
 
 .header {
-    background-color: aquamarine;
+    background-color: #97E7E1;
     width: 100%;
     top: 0;
     padding-bottom: 1px;
@@ -98,6 +99,7 @@
     max-width: 900px;
     min-width: 320px;
     border-radius: 16px;
+    background-color: #F8F6E3;
 }
 
 .my-group-a .root-page-container__content {
@@ -116,10 +118,6 @@
 
 .fan-post-list__body {
     position: relative;
-}
-
-.root-page-container__left {
-    background-color: aliceblue;
 }
 
 /* .root-page-container__right {
@@ -178,6 +176,22 @@
     display: flex;
 }
 
+.fan-switch-tap__main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
 .fan-switch-tap__item {
     margin-right: 20px;
+}
+
+.fan-post-card {
+    background-color: #7AA2E3;
+}
+
+.fan-page-header-block {
+    background-color: #6ad4dd
 }
