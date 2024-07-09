@@ -80,7 +80,7 @@
     width: 100%;
     top: 0;
     padding-bottom: 1px;
-    background-color: black;
+    background-color: gray;
 }
 
 .my-group-a .header__inner {
@@ -130,14 +130,11 @@
 }
 
 .my-group-a .fan-post-list .fan-post-card-wrapper {
-    margin-bottom: 0;
+    margin: 6px;
     padding: 20px;
     background-color: #e1f5fe;
     border-radius: 16px;
-}
-
-.fan-post-list .fan-post-card {
-    outline: 2px solid blue;
+    border: 1px solid gray;
 }
 
 .fan-post-list .fan-post-card:last-child {
@@ -173,6 +170,7 @@
     background-color: #e1f5fe;
     border-radius: 16px;
     padding: 10px;
+    border: 1px solid gray;
 }
 
 .side-footer {
@@ -188,8 +186,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 100%;
+    height: 55px;
     padding: 0 20px;
+    background-color: #80d8ff;
 }
 
 .fan-switch-tap__item {
@@ -197,6 +196,5 @@
 }
 
 .fan-page-header-block {
-    background-color: #80d8ff;
-    border-radius: 16px;
+    background-color: gray;
 }
