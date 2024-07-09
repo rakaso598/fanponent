@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/post-list.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet" />
     <title>post-list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   </head>
@@ -15,10 +19,19 @@
           <div class="header__wrp">
             <div class="header__inner">
               <div class="header__left">Nefandesu</div>
-              <div class="header__main">검색창</div>
+              <div class="header__main">
+                <div style="display: flex; align-items: center;">
+                  <i class="material-icons" style="font-size: 32px;">search</i>
+                  <p style="font-size: 20px;"></p>
+                </div>
+              </div>
               <div class="header__right">
-                <div class="header__item">글쓰기</div>
-                <div class="header__item">프로필</div>
+                <div class="header__item">
+                  <i class="material-icons" style="font-size: 32px;">create</i>
+                </div>
+                <div class="header__item">
+                  <i class="material-icons" style="padding-left: 20px; font-size: 32px;">account_circle</i>
+                </div>
               </div>
             </div>
           </div>
@@ -52,85 +65,94 @@
                         <div class="fan-post-card-wrapper">
                           <!-- card-body -->
                           <div class="fan-post-card">
-                            <div class="fan-post-card__header">:: 제목 ::</div>
-                            <div class="fan-post-card__link">:: 본문 ::</div>
-                            <div class="fan-post-card__topic">#태그</div>
+                            <div class="fan-post-card__header" style="font-weight: bold;">반가워요</div>
+                            <div class="fan-post-card__link">정말고마워요</div>
+                            <div class="fan-post-card__topic">#안녕 #땡큐</div>
                             <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">추가정보</div>
+                            <div class="fan-post-card__footer">
+                              <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
+                              <p style="padding-left: 5px;">30</p>
+                            </div>
                           </div>
-                          <!--  -->
                         </div>
-                        <!-- wrapper-end -->
-                        <!-- wrapper-end -->
-                        <!-- card-wrapper -->
-                        <!-- card-wrapper -->
-                        <div class="fan-post-card-wrapper">
-                          <!-- card-body -->
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header">:: 제목 ::</div>
-                            <div class="fan-post-card__link">:: 본문 ::</div>
-                            <div class="fan-post-card__topic">#태그</div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">추가정보</div>
+                        <!--  -->
+                      </div>
+                      <!-- wrapper-end -->
+                      <!-- wrapper-end -->
+                      <!-- card-wrapper -->
+                      <!-- card-wrapper -->
+                      <div class="fan-post-card-wrapper">
+                        <!-- card-body -->
+                        <div class="fan-post-card">
+                          <div class="fan-post-card__header" style="font-weight: bold;">친구한테 짤을 잘못 보냈어요 ㅠ</div>
+                          <div class="fan-post-card__link">라고 하면 안되겠죠?</div>
+                          <div class="fan-post-card__topic">#실수 #따라하지마세요</div>
+                          <div class="fan-post-card__highlight"></div>
+                          <div class="fan-post-card__footer">
+                            <i class="material-icons" style="color: red; font-size: 24px;">favorite_border</i>
+                            <p style="padding-left: 5px;">56</p>
                           </div>
-                          <!--  -->
                         </div>
-                        <!-- wrapper-end -->
-                        <!-- wrapper-end -->
-                        <!-- card-wrapper -->
-                        <!-- card-wrapper -->
-                        <div class="fan-post-card-wrapper">
-                          <!-- card-body -->
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header">:: 제목 ::</div>
-                            <div class="fan-post-card__link">:: 본문 ::</div>
-                            <div class="fan-post-card__topic">#태그</div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">추가정보</div>
+                        <!--  -->
+                      </div>
+                      <!-- wrapper-end -->
+                      <!-- wrapper-end -->
+                      <!-- card-wrapper -->
+                      <!-- card-wrapper -->
+                      <div class="fan-post-card-wrapper">
+                        <!-- card-body -->
+                        <div class="fan-post-card">
+                          <div class="fan-post-card__header" style="font-weight: bold;">그렇군요</div>
+                          <div class="fan-post-card__link">뱃속에 고기가 있어요</div>
+                          <div class="fan-post-card__topic">#뱃속에 #고기</div>
+                          <div class="fan-post-card__highlight"></div>
+                          <div class="fan-post-card__footer">
+                            <i class="material-icons" style="color: red; font-size: 24px;">favorite_border</i>
+                            <p style="padding-left: 5px;">32</p>
                           </div>
-                          <!--  -->
                         </div>
-                        <!-- wrapper-end -->
-                        <!-- wrapper-end -->
                       </div>
                       <!--  -->
-                      <div class="fan-post-list__footer"></div>
                     </div>
+                    <!-- wrapper-end -->
+                    <!-- wrapper-end -->
                   </div>
                   <!--  -->
+                  <div class="fan-post-list__footer"></div>
                 </div>
               </div>
+              <!--  -->
             </div>
-            <div class="root-page-container__right">
-              <div class="fan-layout__sub">
-                <div class="fan-side-section__wrap">
-                  <div class="fan-side-section side-skeleton__right">
-                    <!-- side-menu -->
-                    <div class="side-skeleton__item">"로그인 하세요!"</div>
-                    <div class="side-skeleton__item">"게시물을 작성해보세요!"</div>
-                    <div class="side-skeleton__item">"추천 태그를 보세요!"</div>
-                    <!--  -->
-                    <!-- footer -->
-                    <div class="side-footer">
-                      <div class="footer__body">
-                        <div class="footer__item">커뮤니티 이용약관</div>
-                        <div class="footer__item">Content Creators</div>
-                      </div>
-                      <div class="footer__bottom">
-                        <div class="footer__copyright">
-                          <p>Made by @rakaso598</p>
-                        </div>
-                      </div>
+          </div>
+        </div>
+        <div class="root-page-container__right">
+          <div class="fan-layout__sub">
+            <div class="fan-side-section__wrap">
+              <div class="fan-side-section side-skeleton__right">
+                <!-- side-menu -->
+                <div class="side-skeleton__item">"로그인 하세요!"</div>
+                <div class="side-skeleton__item">"게시물을 작성해보세요!"</div>
+                <div class="side-skeleton__item">"추천 태그를 보세요!"</div>
+                <!--  -->
+                <!-- footer -->
+                <div class="side-footer">
+                  <div class="footer__body">
+                    <div class="footer__item">커뮤니티 이용약관</div>
+                    <div class="footer__item">Content Creators</div>
+                  </div>
+                  <div class="footer__bottom">
+                    <div class="footer__copyright">
+                      <p>Made by @rakaso598</p>
                     </div>
-                    <!--  -->
                   </div>
                 </div>
+                <!--  -->
               </div>
             </div>
           </div>
         </div>
-        <!--  -->
       </div>
+      <!--  -->
     </div>
   </body>
 </html>
