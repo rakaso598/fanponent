@@ -11,12 +11,12 @@
     .root-page-container__content {
         max-width: 1200px;
     }
+
     .header {
         min-width: 768px;
     }
-    .root-page-container__right {
-        max-width: 300px;
-    }
+
+
 }
 
 /* 401px보다 크고 767px보다 작은 화면에서 적용되는 스타일 for 425px L */
@@ -24,9 +24,11 @@
     .root-page-container__content {
         max-width: 425px;
     }
+
     .header {
         min-width: 425px;
     }
+
     .root-page-container__right {
         display: none;
     }
@@ -37,9 +39,11 @@
     .root-page-container__content {
         max-width: 375px;
     }
+
     .header {
         min-width: 375px;
     }
+
     .root-page-container__right {
         display: none;
     }
@@ -50,12 +54,18 @@
     .root-page-container__content {
         max-width: 320px;
     }
+
     .header {
         min-width: 320px;
     }
+
     .root-page-container__right {
         display: none;
     }
+}
+
+.root-page-container__right {
+    max-width: 300px;
 }
 
 .root {
@@ -63,7 +73,7 @@
     height: 4000px;
     display: flex;
     flex-direction: column;
-    background-color: #b3e5fc;
+    background-color: white;
 }
 
 .header {
@@ -107,7 +117,7 @@
     justify-content: center;
     max-width: 1200px;
     padding: 0 0;
-    height: 4000px;
+    height: 3939px;
 }
 
 .my-group-a .fan-page-header {
@@ -157,9 +167,12 @@
 }
 
 .fan-side-section__wrap {
-    height: 4000px;
-    padding: 20px;
-    width: 300px;
+    height: 100%;
+    margin: 20px;
+    width: 260px;
+    background-color: #e1f5fe;
+    border-radius: 16px;
+    padding: 10px;
 }
 
 .side-footer {
@@ -185,5 +198,5 @@
 
 .fan-page-header-block {
     background-color: #80d8ff;
-    border-bottom: 1px black solid;
+    border-radius: 16px;
 }
