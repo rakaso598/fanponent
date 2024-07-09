@@ -163,6 +163,8 @@
 .my-group-a .fan-post-card__footer {
     margin-top: 16px;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .fan-side-section__wrap {
