@@ -151,6 +151,9 @@
 
 .my-group-a .fan-post-card__topic {
     margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .my-group-a .fan-post-card__highlight {
@@ -207,6 +210,14 @@
     background-color: gray;
 }
 
+/* 태그 전용 */
+.topic__tag {
+    padding-right: 5px;
+    color: gray;
+    /* 기타 원하는 스타일 속성 추가 */
+}
+
+
 
 /* 게시물 이미지 */
 
@@ -215,8 +226,6 @@
     height: auto;
     padding-bottom: 2%;
 }
-
-
 
 /* google material font */
 
