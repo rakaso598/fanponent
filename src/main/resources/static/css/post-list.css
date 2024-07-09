@@ -180,9 +180,6 @@
 }
 
 .header__left {
-    font-family: "Do Hyeon", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     font-size: 24px;
     width: 120px;
 }
@@ -210,4 +207,25 @@
 
 .fan-page-header-block {
     background-color: gray;
+}
+
+
+/* google material font */
+
+.nanum-gothic-regular {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.do-hyeon-regular {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gothic-a1-regular {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
