@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/post-list.css" />
+    <link rel="stylesheet" th:href="@{/css/post-list.css}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,10 +64,10 @@
                       <!-- body-start -->
                       <div class="fan-post-list__body">
                         <!-- card-start -->
-                        <div class="fan-post-card-wrapper">
+                        <div th:each="post : ${allPosts}" class="fan-post-card-wrapper">
                           <div class="fan-post-card">
-                            <div class="fan-post-card__header" style="font-weight: bold;">반가워요</div>
-                            <div class="fan-post-card__link">
+                            <div th:text="${post.title}" class="fan-post-card__header" style="font-weight: bold;">반가워요</div>
+                            <div th:text="${post.content}" class="fan-post-card__link">
                               <p>정말고마워요</p>
                             </div>
                             <div class="fan-post-card__topic">
@@ -106,7 +106,7 @@
                           <div class="fan-post-card">
                             <div class="fan-post-card__header" style="font-weight: bold;">그렇군요</div>
                             <div class="fan-post-card__link">
-                              <img src="\static\img\gogi123.jpg" alt="My Image" class="nef-img" />
+                              <img src="/img/gogi123.jpg" alt="My Image" class="nef-img" />
                               <p>뱃속에 고기가 있어요</p>
                             </div>
                             <div class="fan-post-card__topic">
@@ -126,7 +126,7 @@
                           <div class="fan-post-card">
                             <div class="fan-post-card__header" style="font-weight: bold;">까먹었어요</div>
                             <div class="fan-post-card__link">
-                              <img src="\static\img\daram123.jpg" alt="My Image" class="nef-img" />
+                              <img src="/img/daram123.jpg" alt="My Image" class="nef-img" />
                               <p>귀찮아요</p>
                             </div>
                             <div class="fan-post-card__topic">
