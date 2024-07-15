@@ -16,10 +16,18 @@ import java.time.LocalDateTime;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long postId;
 
+
+    @Column(name = "title") // 컬럼 이름 지정
     private String title;
+
+    @Column(name = "member_Id")
+    private String memberId;
+
+    @Column(name = "content") // 컬럼 이름 지정
     private String content;
+
 
     @Column(name = "created_at") // 컬럼 이름 지정
     private LocalDateTime createdAt;
@@ -27,14 +35,15 @@ public class Post {
     @Column(name = "updated_at") // 컬럼 이름 지정
     private LocalDateTime updatedAt;
 
-    // Getter, Setter, 생성자 등 필요한 메서드를 추가합니다.
 
-    public Long getId() {
-        return id;
+    // Getter and Setter
+
+    public Long getPostId() {
+        return postId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     public String getTitle() {
@@ -43,6 +52,14 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getContent() {
@@ -70,5 +87,5 @@ public class Post {
     }
 
 
-    // 생성자 등도 필요하다면 추가
+    // Constructor
 }
