@@ -45,10 +45,10 @@ MODIFY MEMBER_NAME VARCHAR2(100 BYTE);
 
 --commit;
 
---truncate table post;
+truncate table post;
 
-INSERT INTO post (title, member_name, content, created_at, updated_at)
-VALUES ('test3', 'member_3','exampleContent' , SYSTIMESTAMP, SYSTIMESTAMP);
+INSERT INTO post (post_title, member_name, post_content, created_at, updated_at)
+VALUES ('æ»≥Á«œººø‰_2', 'member_2','exampleContent_2' , SYSTIMESTAMP, SYSTIMESTAMP);
 
 
 

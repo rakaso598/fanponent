@@ -67,10 +67,11 @@
                         <div th:each="post : ${allPosts}" class="fan-post-card-wrapper">
                           <div class="fan-post-card">
                             <div class="fan-post-card__header">
-                              <div th:text="${post.title}" style="font-weight: bold;">제목입니다</div>
+                              <div th:text="${post.postTitle}" style="font-weight: bold;">제목입니다</div>
                               <div th:text="${post.memberName}">작성자 정보</div>
+<!--                              <div th:text="${post.postTags}">태그네임</div>-->
                             </div>
-                            <div th:text="${post.content}" class="fan-post-card__link">
+                            <div th:text="${post.postContent}" class="fan-post-card__link">
                               <p>정말고마워요</p>
                             </div>
                             <div class="fan-post-card__topic">

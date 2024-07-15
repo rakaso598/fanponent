@@ -15,5 +15,4 @@ public interface PostsRepository extends JpaRepository<Post, Long> {
 
     List<Post> findAll();
 
-
 }

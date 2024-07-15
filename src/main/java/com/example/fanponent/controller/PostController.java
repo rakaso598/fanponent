@@ -27,6 +27,8 @@ public class PostController {
 
         List<Post> allPosts = postService.getAllPosts();
 
+        log.info(allPosts.toString());
+
         model.addAttribute("allPosts",allPosts);
 
 
