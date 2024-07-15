@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "POST_TAGS")
-public class PostTag {
+@Table(name = "post_tags")
+public class PostTags {
 
   @Id
   @ManyToOne
@@ -19,23 +19,7 @@ public class PostTag {
 
   @ManyToOne
   @JoinColumn(name = "tag_id")
-  private Tag tag;
+  private Tags tags;
 
-  // Getter and Setter
 
-  public Post getPost() {
-    return post;
-  }
-
-  public void setPost(Post post) {
-    this.post = post;
-  }
-
-  public Tag getTag() {
-    return tag;
-  }
-
-  public void setTag(Tag tag) {
-    this.tag = tag;
-  }
 }
