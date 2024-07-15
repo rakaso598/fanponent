@@ -26,6 +26,9 @@ RENAME COLUMN name TO member_name;
 ALTER TABLE MEMBER
 MODIFY (MEMBER_ID NUMBER(10,0) NOT NULL);
 
+-- unique
+ALTER TABLE MEMBER
+ADD CONSTRAINT unique_member_name UNIQUE (MEMBER_NAME);
 
 
 -- MEMBER 테이블에 예제 데이터 삽입
