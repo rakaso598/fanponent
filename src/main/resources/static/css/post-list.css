@@ -142,6 +142,7 @@
 .my-group-a .fan-post-card__header {
     display: flex;
     position: relative;
+    justify-content: space-between;
 }
 
 .my-group-a .fan-post-card__link {

@@ -10,22 +10,51 @@ CREATE TABLE post (
     updated_at TIMESTAMP NOT NULL
 );
 
--- foreign key
+-- 제약조건 드랍
 ALTER TABLE POST
-ADD CONSTRAINT fk_user_name
-FOREIGN KEY (member_id)
-REFERENCES MEMBER(member_id);
+DROP CONSTRAINT FK_USER_NAME;
+
+-- 제약조건 syntax
+/* 
+ALTER TABLE 현재테이블명
+ADD CONSTRAINT 외래키이름 FOREIGN KEY (현재테이블의속성)
+REFERENCES 다른테이블명 (다른테이블의유니크속성);
+*/
+ALTER TABLE POST
+ADD CONSTRAINT FK_MEMBER_MEMBER_NAME FOREIGN KEY (MEMBER_NAME)
+REFERENCES MEMBER (MEMBER_NAME);
+
+--속성명 변경
+/* 
+ALTER TABLE 테이블명
+RENAME COLUMN 기존속성명 TO 새로운속성명;
+*/
+ALTER TABLE POST
+RENAME COLUMN MEMBER_ID TO MEMBER_NAME;
+
+
+-- 속성 타입 변경
+/*
+ALTER TABLE 테이블명
+MODIFY 컬럼명 새로운데이터타입;
+*/
+ALTER TABLE POST
+MODIFY MEMBER_NAME VARCHAR2(100 BYTE);
+
+--TRUNCATE TABLE POST;
+
+--commit;
 
 --truncate table post;
 
-INSERT INTO post (title, member_id, content, created_at, updated_at)
-VALUES ('test1', '6','exampleContent' , SYSTIMESTAMP, SYSTIMESTAMP);
+INSERT INTO post (title, member_name, content, created_at, updated_at)
+VALUES ('test3', 'member_3','exampleContent' , SYSTIMESTAMP, SYSTIMESTAMP);
 
-INSERT INTO post (title, member_id, content, created_at, updated_at)
-VALUES ('test2', '7','exampleContent' , SYSTIMESTAMP, SYSTIMESTAMP);
 
-INSERT INTO post (title, member_id, content, created_at, updated_at)
-VALUES ('test3', '8','exampleContent' , SYSTIMESTAMP, SYSTIMESTAMP);
+
+--ALTER TABLE POST
+--MODIFY UPDATED_AT NULL;
+
 
 
 

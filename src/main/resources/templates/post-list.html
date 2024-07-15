@@ -66,11 +66,13 @@
                         <!-- card-start -->
                         <div th:each="post : ${allPosts}" class="fan-post-card-wrapper">
                           <div class="fan-post-card">
-                            <div th:text="${post.title}" class="fan-post-card__header" style="font-weight: bold;">반가워요</div>
+                            <div class="fan-post-card__header">
+                              <div th:text="${post.title}" style="font-weight: bold;">제목입니다</div>
+                              <div th:text="${post.memberName}">작성자 정보</div>
+                            </div>
                             <div th:text="${post.content}" class="fan-post-card__link">
                               <p>정말고마워요</p>
                             </div>
-                            <div th:text="${post.memberId}">작성자 정보</div>
                             <div class="fan-post-card__topic">
                               <span class="topic__tag">#안녕</span>
                               <span class="topic__tag">#땡큐</span>
