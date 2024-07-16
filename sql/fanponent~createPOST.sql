@@ -24,13 +24,22 @@ ALTER TABLE POST
 ADD CONSTRAINT FK_MEMBER_MEMBER_NAME FOREIGN KEY (MEMBER_NAME)
 REFERENCES MEMBER (MEMBER_NAME);
 
---속성명 변경
+ALTER TABLE POST
+ADD CONSTRAINT FK_TAG_TAG_NAME FOREIGN KEY (TAG_NAME)
+REFERENCES TAG (TAG_NAME);
+
+--COMMIT;
+
+-- 속성명 변경
 /* 
 ALTER TABLE 테이블명
 RENAME COLUMN 기존속성명 TO 새로운속성명;
 */
 ALTER TABLE POST
 RENAME COLUMN MEMBER_ID TO MEMBER_NAME;
+
+-- 속성 추가
+ALTER TABLE POST ADD TAG_NAME VARCHAR(2);
 
 
 -- 속성 타입 변경
@@ -39,7 +48,7 @@ ALTER TABLE 테이블명
 MODIFY 컬럼명 새로운데이터타입;
 */
 ALTER TABLE POST
-MODIFY MEMBER_NAME VARCHAR2(100 BYTE);
+MODIFY TAG_NAME VARCHAR2(10 BYTE);
 
 --TRUNCATE TABLE POST;
 
@@ -47,18 +56,16 @@ MODIFY MEMBER_NAME VARCHAR2(100 BYTE);
 
 truncate table post;
 
-INSERT INTO post (post_title, member_name, post_content, created_at, updated_at)
-VALUES ('안녕하세요_2', 'member_2','exampleContent_2' , SYSTIMESTAMP, SYSTIMESTAMP);
+INSERT INTO post (post_title, member_name, post_content, created_at, updated_at, tag_name)
+VALUES ('제목_3', 'member_3','내용입니다_3' , SYSTIMESTAMP, SYSTIMESTAMP, '고기');
+
+--commit;
 
 
 
 --ALTER TABLE POST
 --MODIFY UPDATED_AT NULL;
 
-
-
-
---
 CREATE SEQUENCE post_seq
     START WITH 1
     INCREMENT BY 1

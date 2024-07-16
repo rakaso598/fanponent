@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -20,10 +18,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    @Column(nullable = false)
+    @Column
     private String postTitle;
 
-    @Column(nullable = false)
+    @Column
     private String memberName;
 
     @Column
@@ -35,10 +33,8 @@ public class Post {
     @Column
     private LocalDateTime updatedAt;
 
-
-    // PostTag 연결 일대다
-    @OneToMany(mappedBy = "post")
-    private List<PostTags> postTags = new ArrayList<PostTags>();
+    @Column
+    private String tagName;
 
 
 }

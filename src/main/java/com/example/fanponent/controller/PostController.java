@@ -29,12 +29,6 @@ public class PostController {
     public String getAllPosts(Model model){
         List<Post> allPosts = postService.getAllPosts();
 
-//        for (Post post : allPosts) {
-//            List<PostTag> postTags = post.getPostTags();
-//            // postTags를 활용하여 태그 정보를 처리하세요.
-//            // ...
-//        }
-
         model.addAttribute("allPosts", allPosts);
         return "post-list";
     }

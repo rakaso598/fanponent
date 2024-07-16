@@ -12,18 +12,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tags")
-public class Tags {
+@Table(name = "tag")
+public class Tag {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long tagId;
 
-  @Column(nullable = false)
+  @Column
   private String tagName;
-
-  // PostTag 연결 일대다
-  @OneToMany(mappedBy = "tags")
-  private List<PostTags> postTags = new ArrayList<PostTags>();
-
 
 }
