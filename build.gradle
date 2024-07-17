@@ -7,6 +7,12 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
+apply plugin: 'java'
+
+compileJava {
+	options.compilerArgs << '-parameters'
+}
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
@@ -23,12 +29,11 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc6', version: '11.2.0.4'
-
-
 
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -43,7 +48,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test9:3.0.3'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
@@ -54,3 +59,4 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+

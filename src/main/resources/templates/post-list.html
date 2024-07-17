@@ -68,13 +68,13 @@
                           <div class="fan-post-card">
                             <div class="fan-post-card__header">
                               <div th:text="${post.postTitle}" style="font-weight: bold;">제목입니다</div>
-                              <div style="font-size:13px;"><span>작성자 : </span><span th:text="${post.memberName}">작성자 정보</span></div>
+                              <div style="font-size:13px;"><span>작성자 : </span><span th:text="${post.memberName}">타임리프작성자</span></div>
                             </div>
                             <div th:text="${post.postContent}" class="fan-post-card__link">
-                              <p>정말고마워요</p>
+                              <p>타임리프내용</p>
                             </div>
                             <div class="fan-post-card__topic">
-                              <span class="topic__tag">#<span th:text="${post.tagName}">땅콩</span></span>
+                              <span class="topic__tag">#<span th:text="${post.tagNames}">타임리프태그들</span></span>
                             </div>
                             <div class="fan-post-card__highlight"></div>
                             <div class="fan-post-card__footer">

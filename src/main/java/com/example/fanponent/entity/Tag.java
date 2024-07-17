@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @NoArgsConstructor
 @Data
@@ -16,5 +19,9 @@ public class Tag {
 
   @Column
   private String tagName;
+
+  @OneToMany(mappedBy = "tag")
+  private List<PostTag> postTags = new ArrayList<>();
+
 
 }

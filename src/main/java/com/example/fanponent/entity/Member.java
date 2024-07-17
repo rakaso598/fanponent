@@ -1,15 +1,17 @@
 package com.example.fanponent.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "member")
 public class Member {
@@ -17,13 +19,13 @@ public class Member {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long memberId;
 
-  @Column(nullable = false)
+  @Column
   private String memberName;
 
-  @Column(nullable = false)
+  @Column
   private String email;
 
-  @Column(nullable = false)
+  @Column
   private String password;
 
   @Column
@@ -37,5 +39,9 @@ public class Member {
 
   @Column
   private String profilePictureUrl;
+
+  @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+  private List<Post> posts = new ArrayList<>();
+
 
 }

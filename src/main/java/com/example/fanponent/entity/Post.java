@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -29,5 +31,13 @@ public class Post {
 
     @Column
     private LocalDateTime updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "memberId")
+    private Member member;
+
+    @OneToMany(mappedBy = "post")
+    private List<PostTag> postTags = new ArrayList<>();
+
 
 }
