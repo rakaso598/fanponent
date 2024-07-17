@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "postTag")
+@Table(name = "posttag")
 public class PostTag {
 
   @Id
@@ -15,9 +15,11 @@ public class PostTag {
   private Long id;
 
   @ManyToOne
+  @JoinColumn(name = "post_id")
   private Post post;
 
   @ManyToOne
+  @JoinColumn(name = "tag_id")
   private Tag tag;
 
 }

@@ -36,10 +36,9 @@ REFERENCES TAG (TAG_NAME);
 --COMMIT;
 
 -- 속성명 변경
-/* 
-ALTER TABLE 테이블명
-RENAME COLUMN 기존속성명 TO 새로운속성명;
-*/
+ALTER TABLE MEMBER
+RENAME COLUMN PROFILEPICTUREURL TO PROFILE_PICTURE_URL;
+
 ALTER TABLE POST
 RENAME COLUMN MEMBER_ID TO MEMBER_NAME;
 
@@ -70,8 +69,8 @@ MODIFY POST_TITLE VARCHAR2(100 BYTE);
 
 truncate table post;
 
-INSERT INTO post (post_title, member_name, post_content, created_at, updated_at, tag_name)
-VALUES ('제목_3', 'member_3','내용입니다_3' , SYSTIMESTAMP, SYSTIMESTAMP, '고기');
+INSERT INTO post (post_title, post_content, MEMBER_ID , created_at, updated_at)
+VALUES ('제목입니다_2','내용입니다_2' , 7 ,SYSTIMESTAMP, SYSTIMESTAMP);
 
 --commit;
 
