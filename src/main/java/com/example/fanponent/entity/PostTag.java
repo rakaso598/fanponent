@@ -4,17 +4,20 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name = "postTag")
+public class PostTag {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long tagId;
+  private Long id;
 
-  @Column
-  private String tagName;
+  @ManyToOne
+  private Post post;
+
+  @ManyToOne
+  private Tag tag;
 
 }

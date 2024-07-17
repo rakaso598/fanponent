@@ -2,6 +2,7 @@ package com.example.fanponent.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,8 +10,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "post")
 public class Post {
@@ -22,9 +22,6 @@ public class Post {
     private String postTitle;
 
     @Column
-    private String memberName;
-
-    @Column
     private String postContent;
 
     @Column
@@ -32,9 +29,5 @@ public class Post {
 
     @Column
     private LocalDateTime updatedAt;
-
-    @Column
-    private String tagName;
-
 
 }

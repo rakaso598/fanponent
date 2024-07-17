@@ -34,25 +34,6 @@ public class PostController {
     }
 
 
-    @PostMapping
-    public ResponseEntity<String> createPost(@RequestBody PostDtoImpl postDto) {
-        // Convert PostDtoImpl to Post entity
-        Post post = new Post();
-        post.setPostTitle(postDto.getPostTitle());
-        post.setMemberName(postDto.getMemberName());
-        post.setPostContent(postDto.getPostContent());
-        post.setUpdatedAt(postDto.getUpdatedAt());
-
-        // Save the post using the service
-//        postService.savePost(post);
-
-        return ResponseEntity.ok("Post created successfully");
-    }
-
-
-
-
-
     @GetMapping("/list-test")
     public String testList(Model model){
         System.out.println("getAllPosts() 호출!");
