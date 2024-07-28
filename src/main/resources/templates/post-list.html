@@ -64,7 +64,7 @@
                       <!-- body-start -->
                       <div class="fan-post-list__body">
                         <!-- card-start -->
-                        <div th:each="post : ${allPosts}" class="fan-post-card-wrapper">
+                        <div th:each="post : ${posts}" class="fan-post-card-wrapper">
                           <div class="fan-post-card">
                             <div class="fan-post-card__header">
                               <div th:text="${post.postTitle}" style="font-weight: bold;">제목입니다</div>
