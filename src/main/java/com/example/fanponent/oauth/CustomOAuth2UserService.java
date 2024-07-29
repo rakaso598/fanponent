@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Map;
 
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
@@ -31,18 +32,21 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
   public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
     OAuth2User oAuth2User = super.loadUser(userRequest);
 
+    // 사용자 정보 처리 로직
     String registrationId = userRequest.getClientRegistration().getRegistrationId();
-    String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
+    String userNameAttributeName = userRequest.getClientRegistration()
+        .getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
 
-    OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+    Map<String, Object> attributes = oAuth2User.getAttributes();
+    String name = (String) attributes.get("name");
+    String email = (String) attributes.get("email");
 
-    Member member = saveOrUpdate(attributes);
-    httpSession.setAttribute("member", new SessionMember(member));
+    // 예시 데이터로 사용자 객체 생성
+    CustomOAuth2User customUser = new CustomOAuth2User(name, email, attributes);
 
-    return new DefaultOAuth2User(
-        Collections.singleton(new SimpleGrantedAuthority(member.getRoleKey())),
-        attributes.getAttributes(),
-        attributes.getNameAttributeKey());
+    return customUser;
+
+    // 로그인한 사용자의 이름과 이메일을 CustomOAuth2User 객체에 저장
   }
 
   private Member saveOrUpdate(OAuthAttributes attributes) {

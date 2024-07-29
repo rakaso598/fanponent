@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 @EnableWebSecurity
 public class SecurityConfig {
@@ -22,7 +23,10 @@ public class SecurityConfig {
 
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+    requestCache.setMatchingRequestParameterName(null);
     http
+
         .csrf(csrf -> csrf.disable())
         .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
         .authorizeHttpRequests(authorize -> authorize
@@ -33,9 +37,14 @@ public class SecurityConfig {
         .oauth2Login(oauth2 -> oauth2
             .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
             .defaultSuccessUrl("/main", true)
+        )
+        // requestCache null
+        .requestCache((cache) -> cache
+            .requestCache(requestCache)
         );
     return http.build();
   }
+
 
 }
 

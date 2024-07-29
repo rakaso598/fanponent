@@ -1,5 +1,6 @@
 package com.example.fanponent.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,25 +14,26 @@ import java.time.LocalDateTime;
 public abstract class BaseTimeEntity {
 
   @CreatedDate
-  private LocalDateTime createdDate;
+  @Column(updatable = false)
+  private LocalDateTime createdAt;
 
   @LastModifiedDate
-  private LocalDateTime modifiedDate;
+  private LocalDateTime updatedAt;
 
   // Getters and Setters
-  public LocalDateTime getCreatedDate() {
-    return createdDate;
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setCreatedDate(LocalDateTime createdDate) {
-    this.createdDate = createdDate;
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
-  public LocalDateTime getModifiedDate() {
-    return modifiedDate;
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
   }
 
-  public void setModifiedDate(LocalDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
+  public void setUpdatedAt(LocalDateTime updatedAt) {
+    this.updatedAt = updatedAt;
   }
 }

@@ -36,7 +36,7 @@ public class Member extends BaseTimeEntity {
   @Column
   private LocalDateTime updatedAt;
 
-  @Column(nullable = false)
+  @Enumerated(EnumType.STRING)
   private Role role;
 
   @Column
@@ -55,15 +55,4 @@ public class Member extends BaseTimeEntity {
     return this.role.getKey();
   }
 
-  /*
-
-  Member member = Member.builder()
-    .memberName("John Doe")
-    .email("john.doe@example.com")
-    .password("password123")
-    .role(1L)
-    .profilePictureUrl("http://example.com/profile.jpg")
-    .build();
-
-   */
 }
