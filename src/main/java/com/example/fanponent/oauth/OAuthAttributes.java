@@ -1,7 +1,6 @@
 package com.example.fanponent.oauth;
 
 import com.example.fanponent.entity.Member;
-import com.example.fanponent.entity.Role;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -22,6 +21,9 @@ public class OAuthAttributes {
     this.name = name;
     this.email = email;
     this.picture = picture;
+  }
+
+  public OAuthAttributes(String name, String email, Map<String, Object> attributes) {
   }
 
   public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
@@ -46,7 +48,8 @@ public class OAuthAttributes {
         .memberName(name)
         .email(email)
         .profilePictureUrl(picture)
-        .role(Role.USER) // 기본 권한 설정
+        .role("ROLE_USER") // 기본 권한 설정
         .build();
   }
+
 }

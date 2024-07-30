@@ -1,20 +1,17 @@
 package com.example.fanponent.oauth;
 
-import com.example.fanponent.oauth.OAuthAttributes;
 import com.example.fanponent.config.SessionMember;
 import com.example.fanponent.entity.Member;
 import com.example.fanponent.repository.MemberRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
-import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+
 import java.util.Map;
 
 @Service
@@ -38,15 +35,20 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         .getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
 
     Map<String, Object> attributes = oAuth2User.getAttributes();
-    String name = (String) attributes.get("name");
-    String email = (String) attributes.get("email");
+
+    // OAuthAttributes 객체 생성
+    OAuthAttributes oAuthAttributes = OAuthAttributes.of(registrationId, userNameAttributeName, attributes);
+
+    // 멤버 정보 저장 또는 업데이트
+    Member member = saveOrUpdate(oAuthAttributes);
+
+    // 세션에 멤버 정보 저장
+    httpSession.setAttribute("member", new SessionMember(member));
 
     // 예시 데이터로 사용자 객체 생성
-    CustomOAuth2User customUser = new CustomOAuth2User(name, email, attributes);
+    CustomOAuth2User customUser = new CustomOAuth2User(oAuthAttributes.getName(), oAuthAttributes.getEmail(), attributes);
 
     return customUser;
-
-    // 로그인한 사용자의 이름과 이메일을 CustomOAuth2User 객체에 저장
   }
 
   private Member saveOrUpdate(OAuthAttributes attributes) {
@@ -54,7 +56,12 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
         .orElse(attributes.toEntity());
 
+    // 비밀번호를 사용하지 않도록 설정
+    member.setPassword("default_password"); // 기본 비밀번호 설정
+
     return memberRepository.save(member);
   }
 }
+
+
 

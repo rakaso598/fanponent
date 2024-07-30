@@ -1,17 +1,14 @@
 package com.example.fanponent.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Data
 @Builder
 @Entity
@@ -24,35 +21,26 @@ public class Member extends BaseTimeEntity {
   @Column(nullable = false)
   private String memberName;
 
-  @Column(nullable = false, unique = true)
+  @Column(nullable = false)
   private String email;
 
   @Column(nullable = false)
   private String password;
 
-  @Column(updatable = false)
-  private LocalDateTime createdAt;
-
-  @Column
-  private LocalDateTime updatedAt;
-
-  @Enumerated(EnumType.STRING)
-  private Role role;
+  @Column(nullable = false)
+  private String role;
 
   @Column
   private String profilePictureUrl;
 
   @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+  @Builder.Default
   private List<Post> posts = new ArrayList<>();
 
   public Member update(String name, String picture) {
     this.memberName = name;
     this.profilePictureUrl = picture;
     return this;
-  }
-
-  public String getRoleKey() {
-    return this.role.getKey();
   }
 
 }

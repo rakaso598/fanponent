@@ -1,33 +1,31 @@
 package com.example.fanponent.controller;
 
+import com.example.fanponent.config.SessionMember;
 import com.example.fanponent.dto.PostDtoImpl;
-import com.example.fanponent.entity.Member;
 import com.example.fanponent.entity.Post;
 import com.example.fanponent.entity.PostTag;
-import com.example.fanponent.entity.Tag;
 import com.example.fanponent.service.PostService;
+import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
+@RequiredArgsConstructor
 @Controller
 public class PostController {
     private final PostService postService;
-
-    @Autowired
-    public PostController(PostService postService) {
-        this.postService = postService;
-    }
+    private final HttpSession httpSession;
 
     @GetMapping("/main")
-    public String getRecentPosts(@RequestParam(defaultValue = "0") int page, Model model) {
+    public String getRecentPosts(@RequestParam(value = "continue", required = false, defaultValue = "0") Integer page,
+                                 @RequestParam(value = "continue", required = false) String continueParam, Model model) {
         List<Post> recentPosts = postService.getRecentPosts(page, 10);
         List<PostDtoImpl> postDtos = recentPosts.stream().map(post -> {
             PostDtoImpl dto = new PostDtoImpl();
@@ -51,9 +49,13 @@ public class PostController {
 
         model.addAttribute("posts", postDtos);
 
+        // 세션에 member 정보 추가하는 로직
+        SessionMember member = (SessionMember) httpSession.getAttribute("member");
+        if (member != null) {
+            model.addAttribute("userName", member.getName());
+        }
+        model.addAttribute("continue", continueParam);
         return "post-list";  // Thymeleaf 템플릿의 이름
     }
-
-
 
 }
