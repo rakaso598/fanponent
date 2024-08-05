@@ -37,4 +37,15 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<PostTag> postTags = new ArrayList<>();
 
+    private int likeCount;
+
+    // Getter와 Setter 메서드
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
 }
