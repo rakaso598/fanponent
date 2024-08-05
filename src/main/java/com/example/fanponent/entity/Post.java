@@ -37,5 +37,4 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<PostTag> postTags = new ArrayList<>();
 
-
 }

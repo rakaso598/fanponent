@@ -23,5 +23,4 @@ public class Tag {
   @OneToMany(mappedBy = "tag")
   private List<PostTag> postTags = new ArrayList<>();
 
-
 }
