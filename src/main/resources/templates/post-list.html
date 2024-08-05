@@ -1,189 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/post-list.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>post-list</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  </head>
-  <body>
-    <div id="__layout">
-      <div class="root my-group-a">
-        <!-- root-header -->
-        <div class="header">
-          <div class="header__wrp">
-            <div class="header__inner">
-              <div class="header__left do-hyeon-regular">Nefandesu</div>
-              <div class="header__main">
-                <div style="display: flex; align-items: center;">
-                  <i class="material-icons" style="font-size: 32px;">search</i>
-                  <p style="font-size: 20px;"></p>
-                </div>
-              </div>
-              <div class="header__right">
-                <div class="header__item">
-                  <i class="material-icons" style="font-size: 32px;">create</i>
-                </div>
-                <div class="header__item">
-                  <i class="material-icons" style="padding-left: 20px; font-size: 32px;">account_circle</i>
-                </div>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/post-list.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title>post-list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+<body>
+<div id="__layout">
+  <div class="root my-group-a">
+    <!-- root-header -->
+    <div class="header">
+      <div class="header__wrp">
+        <div class="header__inner">
+          <div class="header__left do-hyeon-regular">Nefandesu</div>
+          <div class="header__main">
+            <div style="display: flex; align-items: center;">
+              <i class="material-icons" style="font-size: 32px;">search</i>
+              <p style="font-size: 20px;"></p>
             </div>
           </div>
-        </div>
-        <!-- root-page-container -->
-        <div class="root-page-container gothic-a1-regular">
-          <div class="root-page-container__content">
-            <div class="root-page-container__left">
-              <div class="fan-main-page fan-layout__main">
-                <div class="fan-page-header fan-page-header-md fan-page-header-block">
-                  <div class="fan-switch-tap__main" style="font-weight: bold;">
-                    <div class="fan-switch-tap__item">
-                      <p>추천</p>
-                    </div>
-                    <div class="fan-switch-tap__item">
-                      <p>이벤트</p>
-                    </div>
-                    <div class="fan-switch-tap__item">
-                      <p>전체</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="fan-skeleton">
-                  <!-- fan-skeleton -->
-                  <div class="fan-home-container">
-                    <div class="fan-post-list">
-                      <!-- body-start -->
-                      <!-- body-start -->
-                      <div class="fan-post-list__body">
-                        <!-- card-start -->
-                        <div th:each="post : ${posts}" class="fan-post-card-wrapper">
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header">
-                              <div th:text="${post.postTitle}" style="font-weight: bold;">제목입니다</div>
-                              <div style="font-size:13px;"><span>작성자 : </span><span th:text="${post.memberName}">타임리프작성자</span></div>
-                            </div>
-                            <div th:text="${post.postContent}" class="fan-post-card__link">
-                              <p>타임리프내용</p>
-                            </div>
-                            <div class="fan-post-card__topic">
-                              <span class="topic__tag">#<span th:text="${post.tagNames}">타임리프태그들</span></span>
-                            </div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">
-                              <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
-                              <span style="padding-left: 5px;">56</span>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- card-end -->
-                        <!-- card-start -->
-                        <div class="fan-post-card-wrapper">
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header" style="font-weight: bold;">친구한테 짤을 잘못 보냈어요 ㅠ</div>
-                            <div class="fan-post-card__link">
-                              <p>라고 하면 안되겠죠?</p>
-                            </div>
-                            <div class="fan-post-card__topic">
-                              <span class="topic__tag">#실수</span>
-                              <span class="topic__tag">#따라하지마세요</span>
-                            </div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">
-                              <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
-                              <span style="padding-left: 5px;">23</span>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- card-end -->
-                        <!-- card-start -->
-                        <div class="fan-post-card-wrapper">
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header" style="font-weight: bold;">그렇군요</div>
-                            <div class="fan-post-card__link">
-                              <img src="/img/gogi123.jpg" alt="My Image" class="nef-img" />
-                              <p>뱃속에 고기가 있어요</p>
-                            </div>
-                            <div class="fan-post-card__topic">
-                              <span class="topic__tag">#뱃속에</span>
-                              <span class="topic__tag">#고기</span>
-                            </div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">
-                              <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
-                              <span style="padding-left: 5px;">32</span>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- card-end -->
-                        <!-- card-start -->
-                        <div class="fan-post-card-wrapper">
-                          <div class="fan-post-card">
-                            <div class="fan-post-card__header" style="font-weight: bold;">까먹었어요</div>
-                            <div class="fan-post-card__link">
-                              <img src="/img/daram123.jpg" alt="My Image" class="nef-img" />
-                              <p>귀찮아요</p>
-                            </div>
-                            <div class="fan-post-card__topic">
-                              <span class="topic__tag">#땅콩</span>
-                              <span class="topic__tag">#까먹었어요</span>
-                            </div>
-                            <div class="fan-post-card__highlight"></div>
-                            <div class="fan-post-card__footer">
-                              <i class="material-icons" style="color: red; font-size: 24px;">favorite_border</i>
-                              <span style="padding-left: 5px;">38</span>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- card-end -->
-                      </div>
-                      <!-- body-end -->
-                      <!-- body-end -->
-                    </div>
-                  </div>
-                  <!--  -->
-                  <div class="fan-post-list__footer"></div>
-                </div>
-              </div>
-              <!--  -->
+          <div class="header__right">
+            <div class="header__item">
+              <i class="material-icons" style="font-size: 32px;">create</i>
             </div>
-            <div class="root-page-container__right">
-              <div class="fan-layout__sub">
-                <div class="fan-side-section__wrap">
-                  <div class="fan-side-section side-skeleton__right">
-                    <!-- side-menu -->
-                    <div class="side-skeleton__item">"로그인 하세요!"</div>
-                    <div class="side-skeleton__item">"게시물을 작성해보세요!"</div>
-                    <div class="side-skeleton__item">"추천 태그를 보세요!"</div>
-                    <!--  -->
-                    <!-- footer -->
-                    <div class="side-footer">
-                      <div class="footer__body">
-                        <div class="footer__item">커뮤니티 이용약관</div>
-                        <div class="footer__item">Content Creators</div>
-                      </div>
-                      <div class="footer__bottom">
-                        <div class="footer__copyright">
-                          <p>Made by @rakaso598</p>
-                        </div>
-                      </div>
-                    </div>
-                    <!--  -->
-                  </div>
-                </div>
-              </div>
+            <div class="header__item">
+              <i class="material-icons" style="padding-left: 20px; font-size: 32px;">account_circle</i>
             </div>
           </div>
         </div>
       </div>
-      <!--  -->
     </div>
-  </body>
+    <!-- root-page-container -->
+    <div class="root-page-container gothic-a1-regular">
+      <div class="root-page-container__content">
+        <div class="root-page-container__left">
+          <div class="fan-main-page fan-layout__main">
+            <div class="fan-page-header fan-page-header-md fan-page-header-block">
+              <div class="fan-switch-tap__main" style="font-weight: bold;">
+                <div class="fan-switch-tap__item">
+                  <p>추천</p>
+                </div>
+                <div class="fan-switch-tap__item">
+                  <p>이벤트</p>
+                </div>
+                <div class="fan-switch-tap__item">
+                  <p>전체</p>
+                </div>
+              </div>
+            </div>
+            <div class="fan-skeleton">
+              <!-- fan-skeleton -->
+              <div class="fan-home-container">
+                <div class="fan-post-list">
+                  <!-- body-start -->
+                  <!-- body-start -->
+                  <div class="fan-post-list__body">
+                    <!-- card-start -->
+                    <div th:each="post : ${posts}" class="fan-post-card-wrapper">
+                      <div class="fan-post-card">
+                        <div class="fan-post-card__header">
+                          <div th:text="${post.postTitle}" style="font-weight: bold;">제목입니다</div>
+                          <div style="font-size:13px;"><span>작성자 : </span><span th:text="${post.memberName}">타임리프작성자</span></div>
+                        </div>
+                        <div th:text="${post.postContent}" class="fan-post-card__link">
+                          <p>타임리프내용</p>
+                        </div>
+                        <div class="fan-post-card__topic">
+                          <span class="topic__tag">#<span th:text="${post.tagNames}">타임리프태그들</span></span>
+                        </div>
+                        <div class="fan-post-card__highlight"></div>
+                        <div class="fan-post-card__footer">
+                          <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
+                          <span style="padding-left: 5px;">56</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card-end -->
+                    <!-- card-start -->
+                    <div class="fan-post-card-wrapper">
+                      <div class="fan-post-card">
+                        <div class="fan-post-card__header" style="font-weight: bold;">친구한테 짤을 잘못 보냈어요 ㅠ</div>
+                        <div class="fan-post-card__link">
+                          <p>라고 하면 안되겠죠?</p>
+                        </div>
+                        <div class="fan-post-card__topic">
+                          <span class="topic__tag">#실수</span>
+                          <span class="topic__tag">#따라하지마세요</span>
+                        </div>
+                        <div class="fan-post-card__highlight"></div>
+                        <div class="fan-post-card__footer">
+                          <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
+                          <span style="padding-left: 5px;">23</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card-end -->
+                    <!-- card-start -->
+                    <div class="fan-post-card-wrapper">
+                      <div class="fan-post-card">
+                        <div class="fan-post-card__header" style="font-weight: bold;">그렇군요</div>
+                        <div class="fan-post-card__link">
+                          <img src="/img/gogi123.jpg" alt="My Image" class="nef-img" />
+                          <p>뱃속에 고기가 있어요</p>
+                        </div>
+                        <div class="fan-post-card__topic">
+                          <span class="topic__tag">#뱃속에</span>
+                          <span class="topic__tag">#고기</span>
+                        </div>
+                        <div class="fan-post-card__highlight"></div>
+                        <div class="fan-post-card__footer">
+                          <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
+                          <span style="padding-left: 5px;">32</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card-end -->
+                    <!-- card-start -->
+                    <div class="fan-post-card-wrapper">
+                      <div class="fan-post-card">
+                        <div class="fan-post-card__header" style="font-weight: bold;">까먹었어요</div>
+                        <div class="fan-post-card__link">
+                          <img src="/img/daram123.jpg" alt="My Image" class="nef-img" />
+                          <p>귀찮아요</p>
+                        </div>
+                        <div class="fan-post-card__topic">
+                          <span class="topic__tag">#땅콩</span>
+                          <span class="topic__tag">#까먹었어요</span>
+                        </div>
+                        <div class="fan-post-card__highlight"></div>
+                        <div class="fan-post-card__footer">
+                          <i class="material-icons" style="color: red; font-size: 24px;">favorite_border</i>
+                          <span style="padding-left: 5px;">38</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card-end -->
+                  </div>
+                  <!-- body-end -->
+                  <!-- body-end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="fan-post-list__footer"></div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <!-- right container -->
+        <div class="root-page-container__right">
+          <div class="fan-layout__sub">
+            <div class="fan-side-section__wrap">
+              <div class="fan-side-section side-skeleton__right">
+                <!-- side-menu -->
+                <div class="side-skeleton__item">"로그인 하세요!"</div>
+                <div class="side-skeleton__item">"게시물을 작성해보세요!"</div>
+                <div class="side-skeleton__item">"추천 태그를 보세요!"</div>
+                <!--  -->
+                <!-- footer -->
+                <div class="side-footer">
+                  <div class="footer__body">
+                    <div class="footer__item">커뮤니티 이용약관</div>
+                    <div class="footer__item">Content Creators</div>
+                  </div>
+                  <div class="footer__bottom">
+                    <div class="footer__copyright">
+                      <p>Made by @rakaso598</p>
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- right container -->
+      </div>
+    </div>
+  </div>
+  <!--  -->
+</div>
+</body>
 </html>

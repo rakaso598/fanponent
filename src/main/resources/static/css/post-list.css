@@ -29,9 +29,9 @@
         min-width: 425px;
     }
 
-    .root-page-container__right {
+    /* .root-page-container__right {
         display: none;
-    }
+    } */
 }
 
 /* 371px보다 크고 400px보다 작은 화면에서 적용되는 스타일 for 375px M */
@@ -44,9 +44,9 @@
         min-width: 375px;
     }
 
-    .root-page-container__right {
+    /* .root-page-container__right {
         display: none;
-    }
+    } */
 }
 
 /* 더 작은 화면에서만 적용되는 스타일 for 320px S */
@@ -59,13 +59,13 @@
         min-width: 320px;
     }
 
-    .root-page-container__right {
+    /* .root-page-container__right {
         display: none;
-    }
+    } */
 }
 
 .root-page-container__right {
-    max-width: 300px;
+    max-width: 100%;
 }
 
 .root {
@@ -106,7 +106,7 @@
 
 .my-group-a .root-page-container__left {
     flex: 1;
-    max-width: 900px;
+    max-width: 100%;
     min-width: 320px;
 }
 
@@ -116,6 +116,7 @@
     justify-content: center;
     max-width: 1200px;
     padding: 0 0;
+    flex-direction: column;
 }
 
 .my-group-a .fan-page-header {
@@ -171,11 +172,10 @@
 
 .fan-side-section__wrap {
     height: 100%;
-    margin: 10px;
-    width: 280px;
+    margin: 8px;
     background-color: #bbdefb;
     border-radius: 16px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid gray;
 }
 
