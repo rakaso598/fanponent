@@ -70,9 +70,9 @@
                       <div class="fan-post-card">
                         <div class="fan-post-card__header">
                           <div th:text="${postdto.postTitle}" style="font-weight: bold;">제목입니다</div>
-                          <div style="font-size:13px;"><span>아이디,작성자:</span><span th:text="${postdto.memberName}">
-                            <span th:text="${postdto.memberId}">작성자아이디</span>
+                          <div style="font-size:13px;"><span>네임 아이디:</span>
                             <span th:text="${postdto.memberName}">작성자네임</span>
+                            <span th:text="${member.memberId}">작성자아이디</span>
                           </div>
                         </div>
                         <div th:text="${postdto.postContent}" class="fan-post-card__link">
