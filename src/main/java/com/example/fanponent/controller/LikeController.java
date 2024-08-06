@@ -1,24 +1,45 @@
 package com.example.fanponent.controller;
 
+import com.example.fanponent.dto.LikeRequest;
 import com.example.fanponent.service.LikeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
+@Slf4j
 @RestController
 @RequestMapping("/likes")
 public class LikeController {
 
-  @Autowired
-  private LikeService likeService;
+  private final LikeService likeService;
 
-  @PostMapping("/like")
-  public void likePost(@RequestParam Long postId, @RequestParam Long memberId) {
-    likeService.likePost(postId, memberId);
+  @Autowired
+  public LikeController(LikeService likeService) {
+    this.likeService = likeService;
   }
 
-  @DeleteMapping("/unlike")
-  public void unlikePost(@RequestParam Long postId, @RequestParam Long memberId) {
+  @PostMapping("/{postId}")
+  @ResponseBody
+  public Map<String, Object> likePost(@PathVariable Long postId, @RequestBody LikeRequest likeRequest) {
+    log.debug("Received like request for postId: {}, memberId: {}", postId, likeRequest.getMemberId());
+    Map<String, Object> response = new HashMap<>();
+    try {
+      int likeCount = likeService.likePost(postId, likeRequest.getMemberId());
+      response.put("likeCount", likeCount);
+    } catch (Exception e) {
+      log.error("Error processing like request", e);
+      response.put("error", e.getMessage());
+    }
+    return response;
+  }
+
+  @DeleteMapping("/{postId}")
+  public void unlikePost(@PathVariable Long postId, @RequestParam Long memberId) {
     likeService.unlikePost(postId, memberId);
   }
-
 }
+

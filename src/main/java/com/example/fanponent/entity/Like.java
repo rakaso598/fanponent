@@ -1,14 +1,14 @@
 package com.example.fanponent.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
-
-@NoArgsConstructor
-@Data
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "LIKES")
 public class Like {
 
@@ -23,7 +23,5 @@ public class Like {
   @ManyToOne
   @JoinColumn(name = "member_id")
   private Member member;
-
-  private LocalDateTime createdAt;
 
 }

@@ -3,14 +3,17 @@ package com.example.fanponent.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "post")
 public class Post {
@@ -34,18 +37,12 @@ public class Post {
     @JoinColumn(name = "memberId")
     private Member member;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private List<PostTag> postTags = new ArrayList<>();
 
     private int likeCount;
 
-    // Getter와 Setter 메서드
-    public int getLikeCount() {
-        return likeCount;
-    }
-
-    public void setLikeCount(int likeCount) {
-        this.likeCount = likeCount;
-    }
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
+    private List<Like> likes;
 
 }

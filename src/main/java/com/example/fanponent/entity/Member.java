@@ -9,7 +9,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "member")
@@ -33,9 +34,11 @@ public class Member extends BaseTimeEntity {
   @Column
   private String profilePictureUrl;
 
-  @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-  @Builder.Default
+  @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private List<Post> posts = new ArrayList<>();
+
+  @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+  private List<Like> likes;
 
   public Member update(String name, String picture) {
     this.memberName = name;

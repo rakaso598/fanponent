@@ -2,31 +2,38 @@ package com.example.fanponent.controller;
 
 import com.example.fanponent.config.SessionMember;
 import com.example.fanponent.dto.PostDtoImpl;
-import com.example.fanponent.dto.SessionMemberDto;
 import com.example.fanponent.dto.SessionMemberDtoImpl;
 import com.example.fanponent.entity.Post;
 import com.example.fanponent.entity.PostTag;
 import com.example.fanponent.service.PostService;
 import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RequiredArgsConstructor
 @Controller
+@RequestMapping("/posts")
 public class PostController {
+
   private final PostService postService;
   private final HttpSession httpSession;
 
-  @GetMapping("/main")
-  public String getRecentPosts(@RequestParam(value = "continue", required = false, defaultValue = "0") Integer page,
+  @Autowired
+  public PostController(PostService postService, HttpSession httpSession) {
+    this.postService = postService;
+    this.httpSession = httpSession;
+  }
+
+  @GetMapping
+  public String getRecentPosts(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
                                @RequestParam(value = "continue", required = false) String continueParam, Model model) {
     List<Post> recentPosts = postService.getRecentPosts(page, 10);
     List<PostDtoImpl> postDtos = recentPosts.stream().map(post -> {
@@ -44,7 +51,7 @@ public class PostController {
         String tagNames = postTags.stream()
             .map(postTag -> postTag.getTag().getTagName())
             .collect(Collectors.joining(", "));
-          postDto.setTagNames(tagNames);
+        postDto.setTagNames(tagNames);
       }
 
       return postDto;
@@ -60,7 +67,6 @@ public class PostController {
     }
     model.addAttribute("continue", continueParam);
     return "post-list";  // Thymeleaf 템플릿의 이름
-
   }
-
 }
+

@@ -70,7 +70,8 @@
                       <div class="fan-post-card">
                         <div class="fan-post-card__header">
                           <div th:text="${postdto.postTitle}" style="font-weight: bold;">제목입니다</div>
-                          <div style="font-size:13px;"><span>네임 아이디:</span>
+                          <div style="font-size:13px;"><span>게시글ID 네임 아이디:</span>
+                            <span th:text="${postdto.postId}">게시글ID</span>
                             <span th:text="${postdto.memberName}">작성자네임</span>
                             <span th:text="${member.memberId}">작성자아이디</span>
                           </div>
@@ -84,15 +85,12 @@
                         <div class="fan-post-card__highlight"></div>
 
                         <!-- card form -->
-                        <div class="fan-post-card__footer" th:data-post-id="${postdto.postId}" th:data-member-id="${postdto.memberId}">
-                          <form th:action="@{/likes/like}" method="post">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                            <input type="hidden" th:name="postId" th:value="${postdto.postId}" />
-                            <input type="hidden" th:name="memberId" th:value="${postdto.memberId}" />
-                            <i id="favorite-icon" class="material-icons favorite-icon" style="color: red; font-size: 24px;" onclick="this.closest('form').submit();">favorite</i>
-                          </form>
+                        <div class="fan-post-card__footer" th:data-post-id="${postdto.postId}" th:data-member-id="${member.memberId}">
+                          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" id="csrfToken" />
+                          <i id="favorite-icon" class="material-icons favorite-icon" style="color: red; font-size: 24px;">favorite</i>
                           <span id="like-count" style="padding-left: 5px;">56</span>
                         </div>
+
                         <!-- card form -->
 
                       </div>

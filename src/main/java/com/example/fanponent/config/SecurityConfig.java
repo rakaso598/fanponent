@@ -26,7 +26,6 @@ public class SecurityConfig {
     HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
     requestCache.setMatchingRequestParameterName(null);
     http
-
         .csrf(csrf -> csrf.disable())
         .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
         .authorizeHttpRequests(authorize -> authorize
