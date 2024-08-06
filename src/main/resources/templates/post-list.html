@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" th:href="@{/css/post-list.css}" />
-  <script th:src="@{/js/post-list.js}" defer></script>
+  <script type="module" th:src="@{/js/post-list.js}" defer></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,54 +83,10 @@
                           <span class="topic__tag">#<span th:text="${postdto.tagNames}">타임리프태그들</span></span>
                         </div>
                         <div class="fan-post-card__highlight"></div>
-
-                        <!-- card form -->
                         <div class="fan-post-card__footer" th:data-post-id="${postdto.postId}" th:data-member-id="${member.memberId}">
                           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" id="csrfToken" />
                           <i id="favorite-icon" class="material-icons favorite-icon" style="color: red; font-size: 24px;">favorite</i>
-                          <span id="like-count" style="padding-left: 5px;">56</span>
-                        </div>
-
-                        <!-- card form -->
-
-                      </div>
-                    </div>
-                    <!-- card-end -->
-                    <!-- card-start -->
-                    <div class="fan-post-card-wrapper">
-                      <div class="fan-post-card">
-                        <div class="fan-post-card__header" style="font-weight: bold;">친구한테 짤을 잘못 보냈어요 ㅠ</div>
-                        <div class="fan-post-card__link">
-                          <p>라고 하면 안되겠죠?</p>
-                        </div>
-                        <div class="fan-post-card__topic">
-                          <span class="topic__tag">#실수</span>
-                          <span class="topic__tag">#따라하지마세요</span>
-                        </div>
-                        <div class="fan-post-card__highlight"></div>
-                        <div class="fan-post-card__footer">
-                          <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
-                          <span style="padding-left: 5px;">23</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- card-end -->
-                    <!-- card-start -->
-                    <div class="fan-post-card-wrapper">
-                      <div class="fan-post-card">
-                        <div class="fan-post-card__header" style="font-weight: bold;">그렇군요</div>
-                        <div class="fan-post-card__link">
-                          <img src="/img/gogi123.jpg" alt="My Image" class="nef-img" />
-                          <p>뱃속에 고기가 있어요</p>
-                        </div>
-                        <div class="fan-post-card__topic">
-                          <span class="topic__tag">#뱃속에</span>
-                          <span class="topic__tag">#고기</span>
-                        </div>
-                        <div class="fan-post-card__highlight"></div>
-                        <div class="fan-post-card__footer">
-                          <i class="material-icons" style="color: red; font-size: 24px;">favorite</i>
-                          <span style="padding-left: 5px;">32</span>
+                          <span id="like-count" th:text="${postdto.likeCount}" style="padding-left: 5px;">0</span>
                         </div>
                       </div>
                     </div>

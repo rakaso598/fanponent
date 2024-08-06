@@ -23,7 +23,7 @@ public class PostDtoImpl implements PostDto {
 
     LocalDateTime updatedAt = null; // 수정 시각
 
-
+    int likeCount = 0; // 좋아요 개수 추가
 
     public String getTagNames() {
         return tagNames;

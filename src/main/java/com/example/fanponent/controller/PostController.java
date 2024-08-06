@@ -43,6 +43,7 @@ public class PostController {
       postDto.setPostContent(post.getPostContent());
       postDto.setMemberName(post.getMember().getMemberName());
       postDto.setUpdatedAt(post.getUpdatedAt());
+      postDto.setLikeCount(post.getLikeCount());
 
       // Tag 정보 세팅
       List<PostTag> postTags = post.getPostTags();
