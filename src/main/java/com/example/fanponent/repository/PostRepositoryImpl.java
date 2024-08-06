@@ -2,6 +2,7 @@ package com.example.fanponent.repository;
 
 import com.example.fanponent.entity.Post;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NonUniqueResultException;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,12 +25,12 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     if (results.isEmpty()) {
       return Optional.empty();
     } else if (results.size() > 1) {
-      // 첫 번째 결과를 반환하거나 필요에 따라 처리
-      return Optional.of(results.get(0));
+      // 여러 결과가 발견된 경우 예외 던지기
+      throw new NonUniqueResultException("Multiple posts found with postId: " + postId);
     } else {
       return Optional.of(results.get(0));
     }
-  }
 
+  }
 
 }

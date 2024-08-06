@@ -24,13 +24,6 @@ public class PostServiceImpl implements PostService {
   }
 
   @Override
-  public List<Post> getRecentPosts(int page, int size) {
-    Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
-    Page<Post> postPage = postRepository.findAll(pageable);
-    return postPage.getContent();
-  }
-
-  @Override
   public List<PostDto> getAllPosts() {
     List<Post> posts = postRepository.findAll();
     return posts.stream().map(post -> {
