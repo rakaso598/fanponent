@@ -12,6 +12,6 @@ public interface PostDto {
     String memberName = null; // 멤버 닉네임
     String tagName = null; // 태그명
     LocalDateTime updatedAt = null; // 수정 시각
-    int likeCount = 0;
+    int likeCount = 0; // 좋아요 개수
 
 }

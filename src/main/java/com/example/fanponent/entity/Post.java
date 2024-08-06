@@ -2,7 +2,6 @@ package com.example.fanponent.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor
 @Getter
@@ -44,5 +44,12 @@ public class Post {
 
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private List<Like> likes;
+
+    // getTagNames 메서드 추가
+    public String getTagNames() {
+        return postTags.stream()
+            .map(postTag -> postTag.getTag().getTagName())
+            .collect(Collectors.joining(", "));
+    }
 
 }
