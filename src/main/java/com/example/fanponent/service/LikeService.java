@@ -29,6 +29,10 @@ public class LikeService {
     Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("Post not found"));
     Member member = memberRepository.findById(memberId).orElseThrow(() -> new RuntimeException("Member not found"));
 
+    if (likeRepository.existsByPostAndMember(post, member)) {
+      throw new RuntimeException("Already liked");
+    }
+
     Like like = new Like();
     like.setPost(post);
     like.setMember(member);
@@ -36,11 +40,9 @@ public class LikeService {
 
     likeRepository.save(like);
 
-    // 좋아요 수 증가
     post.setLikeCount(post.getLikeCount() + 1);
     postRepository.save(post);
   }
-
 
   @Transactional
   public void unlikePost(Long postId, Long memberId) {

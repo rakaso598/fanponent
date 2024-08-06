@@ -4,9 +4,13 @@ import java.time.LocalDateTime;
 
 public interface PostDto {
 
+    Long postId = null;
     String postTitle = null; // 제목
     String postContent = null; // 내용
-    String memberName = null; // 유저 닉네임
+
+    Long memberId = null; // 멤버 아이디
+    String memberName = null; // 멤버 닉네임
     String tagName = null; // 태그명
     LocalDateTime updatedAt = null; // 수정 시각
+    
 }

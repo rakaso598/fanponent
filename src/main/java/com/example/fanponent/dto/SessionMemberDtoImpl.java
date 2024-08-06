@@ -1,20 +1,21 @@
-package com.example.fanponent.config;
+package com.example.fanponent.dto;
 
+import com.example.fanponent.config.SessionMember;
 import com.example.fanponent.entity.Member;
 
 import java.io.Serializable;
 
-public class SessionMember implements Serializable {
+public class SessionMemberDtoImpl implements SessionMemberDto {
   private Long memberId;
   private String memberName;
   private String email;
   private String profilePicture;
 
-  public SessionMember(Member member) {
+  public SessionMemberDtoImpl(SessionMember member) {
     this.memberId = member.getMemberId(); // memberId 설정
     this.memberName = member.getMemberName();
     this.email = member.getEmail();
-    this.profilePicture = member.getProfilePictureUrl();
+    this.profilePicture = member.getProfilePicture();
   }
 
   // Getters
