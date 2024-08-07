@@ -21,6 +21,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
   public Optional<Post> findUniquePost(Long postId) {
     List<Post> results = entityManager.createQuery("SELECT p FROM Post p WHERE p.postId = :postId", Post.class)
         .setParameter("postId", postId)
+        .setMaxResults(1) // 단일 결과만 반환하도록 제한
         .getResultList();
     if (results.isEmpty()) {
       return Optional.empty();
@@ -30,7 +31,5 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     } else {
       return Optional.of(results.get(0));
     }
-
   }
-
 }

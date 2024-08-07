@@ -1,6 +1,10 @@
 package com.example.fanponent.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface LikeService {
-  int likePost(Long postId, Long memberId);
-  void unlikePost(Long postId, Long memberId);
+  void addLike(Long postId, Long memberId);
+  void removeLike(Long postId, Long memberId);
+  int getLikeCount(Long postId);
 }

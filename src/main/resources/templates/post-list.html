@@ -66,6 +66,7 @@
                   <!-- body-start -->
                   <div class="fan-post-list__body">
                     <!-- card-start -->
+
                     <div th:each="postdto : ${postdtos}" class="fan-post-card-wrapper">
                       <div class="fan-post-card">
                         <div class="fan-post-card__header">
@@ -86,11 +87,12 @@
                         <div class="fan-post-card__highlight"></div>
                         <div class="fan-post-card__footer" th:data-post-id="${postdto.postId}" th:data-member-id="${postdto.memberId}">
                           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" class="csrfToken" />
-                          <i class="material-icons favorite-icon" style="color: red; font-size: 24px;">favorite</i>
+                          <i class="material-icons favorite-icon" style="color: red; font-size: 24px;" data-liked="false">favorite_border</i>
                           <span class="like-count" th:text="${postdto.likeCount}" style="padding-left: 5px;">0</span>
                         </div>
                       </div>
                     </div>
+
 
                     <!-- card-end -->
                     <!-- card-start -->
