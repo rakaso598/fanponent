@@ -5,10 +5,6 @@ import com.example.fanponent.dto.PostDtoImpl;
 import com.example.fanponent.entity.Post;
 import com.example.fanponent.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,15 +20,15 @@ public class PostServiceImpl implements PostService {
   }
 
   @Override
-  public List<PostDto> getAllPosts() {
+  public List<PostDto> getAllPostsOnMember() {
     List<Post> posts = postRepository.findAll();
     return posts.stream().map(post -> {
       PostDtoImpl postDto = new PostDtoImpl(); // PostDtoImpl 객체 생성
       postDto.setPostId(post.getPostId());
       postDto.setPostTitle(post.getPostTitle());
       postDto.setPostContent(post.getPostContent());
-      postDto.setMemberId(post.getMember().getMemberId());
-      postDto.setMemberName(post.getMember().getMemberName());
+      postDto.setMemberId(post.getMemberId());
+      postDto.setMemberName(post.getMemberName());
       postDto.setTagNames(post.getTagNames());
       postDto.setUpdatedAt(post.getUpdatedAt());
       postDto.setLikeCount(post.getLikeCount());

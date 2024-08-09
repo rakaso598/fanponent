@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>post-write</title>
+</head>
+<body>
+  <form action="/posts/create" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+    <label for="postTitle">postTitle</label>
+    <input type="text" id="postTitle" name="postTitle" required>
+
+    <label for="postContent">postContent</label>
+    <textarea id="postContent" name="postContent" required></textarea>
+
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -2,9 +2,16 @@ package com.example.fanponent.config;
 
 import com.example.fanponent.oauth.CustomOAuth2AuthenticationSuccessHandler;
 import com.example.fanponent.oauth.CustomOAuth2UserService;
+import com.example.fanponent.oauth.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
@@ -21,12 +28,12 @@ public class SecurityConfig {
     this.customOAuth2AuthenticationSuccessHandler = customOAuth2AuthenticationSuccessHandler;
   }
 
+  @Autowired
+  private CustomUserDetailsService userDetailsService;
+
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
-    requestCache.setMatchingRequestParameterName(null);
     http
-        .csrf(csrf -> csrf.disable())
         .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
         .authorizeHttpRequests(authorize -> authorize
             .requestMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
@@ -37,13 +44,32 @@ public class SecurityConfig {
             .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
             .defaultSuccessUrl("/main", true)
         )
-        // requestCache null
-        .requestCache((cache) -> cache
-            .requestCache(requestCache)
+        .requestCache(requestCache -> requestCache
+            .requestCache(new HttpSessionRequestCache()) // 기본 설정 사용
         );
     return http.build();
   }
 
+  @Bean
+  public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    return authenticationConfiguration.getAuthenticationManager();
+  }
 
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
+
+  @Bean
+  public DaoAuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+    authProvider.setUserDetailsService(userDetailsService);
+    authProvider.setPasswordEncoder(passwordEncoder());
+    return authProvider;
+  }
+
+  @Autowired
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.authenticationProvider(authenticationProvider());
+  }
 }
-

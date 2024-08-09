@@ -6,5 +6,8 @@ import com.example.fanponent.entity.Post;
 import java.util.List;
 
 public interface PostService {
-  List<PostDto> getAllPosts(); // 추가된 메서드
+  List<PostDto> getAllPostsOnMember(); // 추가된 메서드
+
+
+
 }

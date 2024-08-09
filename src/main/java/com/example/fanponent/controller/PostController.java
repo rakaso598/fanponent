@@ -30,9 +30,9 @@ public class PostController {
   }
 
   @GetMapping("/posts")
-  public String getAllPosts(Model model, @RequestParam(value = "continue", required = false) String continueParam) {
+  public String getAllPostsOnMember(Model model, @RequestParam(value = "continue", required = false) String continueParam) {
     log.debug("continueParam: {}", continueParam);
-    List<PostDto> postdtos = postService.getAllPosts();
+    List<PostDto> postdtos = postService.getAllPostsOnMember();
     model.addAttribute("postdtos", postdtos);
 
     // 세션에 member 정보 추가하는 로직
